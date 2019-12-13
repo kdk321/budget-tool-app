@@ -13,7 +13,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of items">
-                <td>{{item.paid}}</td>
+                <td *ngIf="item.paid==true;else elseBlock">X</td>
+                <ng-template #elseBlock><td></td></ng-template>
                 <td>{{item.dateDue | date: 'MM/dd/yyy'}}</td>
                 <td class="text-left">{{item.item}}</td>
                 <td class="text-right">{{item.amount | currency}}</td>
