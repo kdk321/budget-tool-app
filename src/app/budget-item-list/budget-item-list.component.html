@@ -14,7 +14,7 @@
         <tbody>
             <tr *ngFor="let item of items">
                 <td>{{item.paid}}</td>
-                <td>{{item.dateDue | date}}</td>
+                <td>{{item.dateDue | date: 'MM/dd/yyy'}}</td>
                 <td class="text-left">{{item.item}}</td>
                 <td class="text-right">{{item.amount | currency}}</td>
                 <td>{{item.reviewed}}</td>
@@ -34,3 +34,4 @@
     </table>
 </div>
 
+ng serve
