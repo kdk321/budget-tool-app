@@ -1,37 +1,27 @@
 <div class="container align-content-center">
     <table class="table text-center">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Paid</th>
-                <th scope="col">Date Due</th>
-                <th class="text-left" scope="col">Item</th>
-                <th class="text-right" scope="col">Amount</th>
-                <th scope="col">Reviewed</th>                
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td></td>
-                <td>1/10/2020</td>
-                <td class="text-left">Paycheck</td>
-                <td class="text-right">500.00</td>
-                <td>X</td>
+        <thead class="thead-light">
+            <tr>
+            <th scope="col">Paid</th>
+            <th scope="col">Date Due</th>
+            <th class="text-left" scope="col">Item</th>
+            <th class="text-right" scope="col">Amount</th>
+            <th scope="col">Reviewed</th>                
+            <th>Edit</th>
+            <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items">
+                <td>{{item.paid}}</td>
+                <td>{{item.dateDue | date}}</td>
+                <td class="text-left">{{item.item}}</td>
+                <td class="text-right">{{item.amount | currency}}</td>
+                <td>{{item.reviewed}}</td>
                 <td><button class="btn btn-primary btn-sm">Edit</button></td>                
                 <td><button class="btn btn-primary btn-sm">Delete</button></td>                
-              </tr>
-              <tr>
-                <td>X</td>
-                <td>1/15/2020</td>
-                <td class="text-left">Electric</td>
-                <td class="text-right text-danger">(100.00)</td>
-                <td>X</td>
-                <td><button class="btn btn-primary btn-sm">Edit</button></td>
-                <td><button class="btn btn-primary btn-sm">Delete</button></td>                
-              </tr>
-              <tr>
+            </tr>              
+            <tr>
                 <td></td>
                 <td></td>
                 <td class="text-left"><strong>Remaining</strong></td>
@@ -39,8 +29,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                </tr>              
-            </tbody>
-          </table>
+            </tr>              
+        </tbody>
+    </table>
 </div>
 
