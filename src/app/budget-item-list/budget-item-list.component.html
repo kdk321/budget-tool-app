@@ -18,7 +18,8 @@
                 <td>{{item.dateDue | date: 'MM/dd/yyy'}}</td>
                 <td class="text-left">{{item.item}}</td>
                 <td class="text-right">{{item.amount | currency}}</td>
-                <td>{{item.reviewed}}</td>
+                <td *ngIf="item.reviewed==true;else elseBlock">X</td>
+                <ng-template #elseBlock><td></td></ng-template>                
                 <td><button class="btn btn-primary btn-sm">Edit</button></td>                
                 <td><button class="btn btn-primary btn-sm">Delete</button></td>                
             </tr>              
