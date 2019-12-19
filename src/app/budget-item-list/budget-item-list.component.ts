@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../models/item.model';
+import { BudgetItemService } from '../services/budget-item.service';
 
 @Component({
   selector: 'app-budget-item-list',
@@ -8,13 +9,22 @@ import { Item } from '../models/item.model';
 })
 export class BudgetItemListComponent implements OnInit {
 
-  items: Item[] = [
-    {id: 1, paid: true, dateDue: new Date(), item: "Paycheck", amount: 500.00, reviewed: true},
-    {id: 2, paid: false, dateDue: new Date(), item: "Gas", amount: -28.00, reviewed: true}
-  ]
+  items: Item[];
+  
+  constructor(private budgetItemService: BudgetItemService) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.budgetItemService.findAll().subscribe(data => {
+      this.items = data;
+    });
+  }
 
-  ngOnInit() {}
+  getRemainingAmount(){    
+    let remainingAmount: number = 0;
+    this.items.forEach(item => {
+      remainingAmount = remainingAmount + item.amount;      
+    });
+    return remainingAmount;
+  }
 
 }

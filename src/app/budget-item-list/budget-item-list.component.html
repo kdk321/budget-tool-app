@@ -13,21 +13,26 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of items">
-                <td *ngIf="item.paid==true;else elseBlock">X</td>
-                <ng-template #elseBlock><td></td></ng-template>
+                <td *ngIf="item.paid==true;else elseNotPaid">X</td>
+                <ng-template #elseNotPaid><td></td></ng-template>
+
                 <td>{{item.dateDue | date: 'MM/dd/yyy'}}</td>
                 <td class="text-left">{{item.item}}</td>
-                <td class="text-right">{{item.amount | currency}}</td>
-                <td *ngIf="item.reviewed==true;else elseBlock">X</td>
-                <ng-template #elseBlock><td></td></ng-template>                
+
+                <td class="text-right text-danger" *ngIf="item.amount < 0; else elsePositiveAmount">{{item.amount.toFixed(2).replace("-", "(").concat(")")}}</td>
+                <ng-template #elsePositiveAmount><td class="text-right">{{item.amount.toFixed(2)}}</td></ng-template>
+
+                <td *ngIf="item.reviewed==true;else elseNotReviewed">X</td>
+                <ng-template #elseNotReviewed><td></td></ng-template>                
+
                 <td><button class="btn btn-primary btn-sm">Edit</button></td>                
                 <td><button class="btn btn-primary btn-sm">Delete</button></td>                
             </tr>              
             <tr>
                 <td></td>
                 <td></td>
-                <td class="text-left"><strong>Remaining</strong></td>
-                <td class="text-right">$400.00</td>
+                <td class="text-left"><strong>Remaining Amount</strong></td>
+                <td class="text-right">{{getRemainingAmount() | currency}}</td>
                 <td></td>
                 <td></td>
                 <td></td>
