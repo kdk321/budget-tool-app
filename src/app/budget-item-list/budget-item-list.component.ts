@@ -10,20 +10,23 @@ import { BudgetItemService } from '../services/budget-item.service';
 export class BudgetItemListComponent implements OnInit {
 
   items: Item[];
+  remainingAmount: number;
   
   constructor(private budgetItemService: BudgetItemService) { }
 
   ngOnInit() {
     this.budgetItemService.findAll().subscribe(data => {
       this.items = data;
+      this.remainingAmount = this.getRemainingAmount();
     });
   }
 
   getRemainingAmount(){    
     let remainingAmount: number = 0;
     this.items.forEach(item => {
-      remainingAmount = remainingAmount + item.amount;      
-    });
+
+      remainingAmount = remainingAmount + item.amount; 
+    });    
     return remainingAmount;
   }
 
