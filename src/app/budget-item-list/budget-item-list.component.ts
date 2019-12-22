@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../models/item.model';
 import { BudgetItemService } from '../services/budget-item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-budget-item-list',
@@ -12,7 +13,7 @@ export class BudgetItemListComponent implements OnInit {
   items: Item[];
   remainingAmount: number;
   
-  constructor(private budgetItemService: BudgetItemService) { }
+  constructor(private budgetItemService: BudgetItemService, private router: Router) { }
 
   ngOnInit() {
     this.budgetItemService.findAll().subscribe(data => {
@@ -28,6 +29,10 @@ export class BudgetItemListComponent implements OnInit {
       remainingAmount = remainingAmount + item.amount; 
     });    
     return remainingAmount;
+  }
+
+  addItem(){
+    this.router.navigate(['budget-item', -1])
   }
 
 }

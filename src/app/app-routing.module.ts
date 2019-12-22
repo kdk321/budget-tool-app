@@ -6,7 +6,7 @@ import { BudgetItemComponent } from './budget-item/budget-item.component';
 
 const routes: Routes = [
   { path: 'budget-item-list', component: BudgetItemListComponent },
-  { path: 'budget-item', component: BudgetItemComponent },
+  { path: 'budget-item/:id', component: BudgetItemComponent },
   { path: '**', component: BudgetItemListComponent}
 ];
 
