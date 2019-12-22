@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BudgetItemListComponent } from './budget-item-list/budget-item-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BudgetItemComponent } from './budget-item/budget-item.component';
+import{ FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BudgetItemComponent } from './budget-item/budget-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
