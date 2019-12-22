@@ -1,4 +1,7 @@
 <div class="container">
+
+    <div class="container" class="alert alert-danger" *ngIf=budgetItemForm.invalid>Please enter required fields</div>
+
     <form (submit)="!budgetItemForm.invalid && saveBudgetItem()" #budgetItemForm=ngForm>
         <table class="table text-center">
             <thead class="thead-light">
