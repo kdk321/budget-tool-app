@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form (submit)="!budgetItemForm.invalid && saveBudgetItem()" #budgetItemForm=ngForm>
         <table class="table text-center">
             <thead class="thead-light">
                 <th>Paid</th>
@@ -22,7 +22,7 @@
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="text"[(ngModel)]="budgetItem.item" class="form-control" name="item">
+                            <input type="text"[(ngModel)]="budgetItem.item" class="form-control" name="item" required>
                         </div>
                     </td>
                     <td>
@@ -39,7 +39,7 @@
             </tbody>
         </table>
         <div class="float-right">
-            <button class="btn btn-primary m-1">Save</button>
+            <button type="submit" class="btn btn-primary m-1">Save</button>
             <button type="button" class="btn btn-secondary m-1" routerLink="/budget-item-list">Cancel</button>
         </div>
     </form>
