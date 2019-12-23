@@ -1,5 +1,5 @@
 <div class="container">
-    <button class="btn btn-primary btn-sm" (click)="addItem()">Add Item</button>
+    <button class="btn btn-primary btn-sm" (click)="addBudgetItem()">Add Item</button>
 </div>
 <div class="container align-content-center">
     <table class="table text-center">
@@ -29,7 +29,7 @@
                 <ng-template #elseNotReviewed><td></td></ng-template>                
 
                 <td><button class="btn btn-primary btn-sm">Edit</button></td>                
-                <td><button class="btn btn-primary btn-sm">Delete</button></td>                
+                <td><button class="btn btn-primary btn-sm" (click)="deleteBudgetItem(item.id)">Delete</button></td>                
             </tr>              
             <tr>
                 <td></td>

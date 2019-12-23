@@ -22,5 +22,9 @@ export class BudgetItemService {
      return this.http.post<Item>(this.budgetItemsUrl, item);
    }
 
+   public delete(id) {
+     return this.http.delete<Item>(this.budgetItemsUrl+"/"+id);
+   }
+
 
 }

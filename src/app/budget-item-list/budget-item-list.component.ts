@@ -16,10 +16,7 @@ export class BudgetItemListComponent implements OnInit {
   constructor(private budgetItemService: BudgetItemService, private router: Router) { }
 
   ngOnInit() {
-    this.budgetItemService.findAll().subscribe(data => {
-      this.items = data;
-      this.remainingAmount = this.getRemainingAmount();
-    });
+    this.getBudgetItems();
   }
 
   getRemainingAmount(){    
@@ -31,8 +28,22 @@ export class BudgetItemListComponent implements OnInit {
     return remainingAmount;
   }
 
-  addItem(){
+  getBudgetItems(){
+    this.budgetItemService.findAll().subscribe(data => {
+      this.items = data;
+      this.remainingAmount = this.getRemainingAmount();
+    });
+  }
+
+  addBudgetItem(){
     this.router.navigate(['budget-item', -1])
+  }
+
+  deleteBudgetItem(id){
+    console.log(id);
+    this.budgetItemService.delete(id).subscribe(data =>{
+      this.getBudgetItems()
+    });
   }
 
 }
