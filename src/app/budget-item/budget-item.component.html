@@ -3,18 +3,18 @@
     <div class="container" class="alert alert-danger" *ngIf=budgetItemForm.invalid>Please enter required fields</div>
 
     <form (submit)="!budgetItemForm.invalid && saveBudgetItem()" #budgetItemForm=ngForm>
-        <table class="table text-center">
+        <table class="table text-left">
             <thead class="thead-light">
-                <th>Paid</th>
+                <th class="text-center">Paid</th>
                 <th>Date Due</th>
                 <th>Item</th>
                 <th>Amount</th>
-                <th>Reviewed</th>
+                <th class="text-center">Reviewed</th>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <div class="form-check">
+                        <div class="form-check text-center">
                             <input type="checkbox" [(ngModel)]="budgetItem.paid" class="form-check-input big-checkbox" name="paid">
                         </div>
                     </td>
@@ -34,7 +34,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="form-check">
+                        <div class="form-check text-center">
                             <input type="checkbox" [(ngModel)]="budgetItem.reviewed" class="form-check-input big-checkbox" name="reviewed">
                         </div>         
                     </td>
