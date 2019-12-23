@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../models/item.model';
 import { BudgetItemService } from '../services/budget-item.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-budget-item',
@@ -11,11 +11,17 @@ import { Router } from '@angular/router';
 export class BudgetItemComponent implements OnInit {
 
   budgetItem: Item;
+  id: number;
 
-  constructor(private budgetItemService: BudgetItemService, private router: Router ) { }
+  constructor(private budgetItemService: BudgetItemService, private router: Router, private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.budgetItem = new Item();
+    this.id = this.route.snapshot.params.id;
+
+    if (this.id != -1){
+      this.getBudgetItem();
+    }
   }
 
   saveBudgetItem()
@@ -25,4 +31,7 @@ export class BudgetItemComponent implements OnInit {
     );
   }
 
+  getBudgetItem(){
+     this.budgetItemService.findById(this.id).subscribe(data => this.budgetItem = data);
+  }
 }

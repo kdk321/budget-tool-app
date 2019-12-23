@@ -18,6 +18,10 @@ export class BudgetItemService {
      return this.http.get<Item[]>(this.budgetItemsUrl);
    }
 
+   public findById(id): Observable<Item> {
+     return this.http.get<Item>(this.budgetItemsUrl+"/"+id);
+   }
+
    public save(item: Item){
      return this.http.post<Item>(this.budgetItemsUrl, item);
    }

@@ -39,6 +39,10 @@ export class BudgetItemListComponent implements OnInit {
     this.router.navigate(['budget-item', -1])
   }
 
+  editBudgetItem(id){
+    this.router.navigate(['budget-item', id])
+  }
+
   deleteBudgetItem(id){
     console.log(id);
     this.budgetItemService.delete(id).subscribe(data =>{

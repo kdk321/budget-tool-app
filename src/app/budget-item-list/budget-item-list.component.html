@@ -28,7 +28,7 @@
                 <td *ngIf="item.reviewed==true;else elseNotReviewed">X</td>
                 <ng-template #elseNotReviewed><td></td></ng-template>                
 
-                <td><button class="btn btn-primary btn-sm">Edit</button></td>                
+                <td><button class="btn btn-primary btn-sm" (click)="editBudgetItem(item.id)">Edit</button></td>                
                 <td><button class="btn btn-primary btn-sm" (click)="deleteBudgetItem(item.id)">Delete</button></td>                
             </tr>              
             <tr>

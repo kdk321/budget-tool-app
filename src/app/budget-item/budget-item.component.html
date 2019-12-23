@@ -20,7 +20,7 @@
                     </td>
                     <td>
                         <div class="form-group">
-                            <input type="date" [(ngModel)]="budgetItem.dateDue" class="form-control" name="dateDue">
+                            <input type="date" [ngModel]="budgetItem.dateDue | date:'yyy-MM-dd'" (ngModelChange)="budgetItem.dateDue=$event" class="form-control" name="dateDue">
                         </div>
                     </td>
                     <td>
