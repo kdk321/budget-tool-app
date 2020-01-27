@@ -1,5 +1,3 @@
-import { CurrencyPipe } from '@angular/common';
-
 export class Item {
     id: number;
     paid: boolean;

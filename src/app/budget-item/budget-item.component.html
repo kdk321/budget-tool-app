@@ -15,27 +15,37 @@
                 <tr>
                     <td>
                         <div class="form-check text-center">
+                          <label>
                             <input type="checkbox" [(ngModel)]="budgetItem.paid" class="form-check-input big-checkbox" name="paid">
+                          </label>
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
+                          <label>
                             <input type="date" [ngModel]="budgetItem.dateDue | date:'yyy-MM-dd'" (ngModelChange)="budgetItem.dateDue=$event" class="form-control" name="dateDue">
+                          </label>
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
+                          <label>
                             <input type="text" [(ngModel)]="budgetItem.item" class="form-control" name="item" required>
+                          </label>
                         </div>
                     </td>
                     <td>
                         <div class="form-group">
+                          <label>
                             <input type="text" [(ngModel)]="budgetItem.amount" class="form-control" name="amount">
+                          </label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check text-center">
+                          <label>
                             <input type="checkbox" [(ngModel)]="budgetItem.reviewed" class="form-check-input big-checkbox" name="reviewed">
+                          </label>
                         </div>
                     </td>
                 </tr>
