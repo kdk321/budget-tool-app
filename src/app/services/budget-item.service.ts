@@ -8,10 +8,10 @@ import { Item } from '../models/item.model';
 })
 export class BudgetItemService {
 
-  private budgetItemsUrl: string;
+  private readonly budgetItemsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.budgetItemsUrl = "http://localhost:8080/budget-items";
+    this.budgetItemsUrl = 'http://localhost:8080/budget-items';
    }
 
    public findAll(): Observable<Item[]> {
@@ -19,15 +19,15 @@ export class BudgetItemService {
    }
 
    public findById(id): Observable<Item> {
-     return this.http.get<Item>(this.budgetItemsUrl+"/"+id);
+     return this.http.get<Item>(this.budgetItemsUrl + '/' + id);
    }
 
-   public save(item: Item){
+   public save(item: Item) {
      return this.http.post<Item>(this.budgetItemsUrl, item);
    }
 
    public delete(id) {
-     return this.http.delete<Item>(this.budgetItemsUrl+"/"+id);
+     return this.http.delete<Item>(this.budgetItemsUrl + '/' + id);
    }
 
 

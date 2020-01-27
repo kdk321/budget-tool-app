@@ -17,21 +17,20 @@ export class BudgetItemComponent implements OnInit {
 
   ngOnInit() {
     this.budgetItem = new Item();
-    this.id = this.route.snapshot.params.id;
+    this.id = Number(this.route.snapshot.params.id);
 
-    if (this.id != -1){
+    if (this.id !== -1) {
       this.getBudgetItem();
     }
   }
 
-  saveBudgetItem()
-  {
-    this.budgetItemService.save(this.budgetItem).subscribe(data =>
-      this.router.navigateByUrl("budget-item-list")
+  saveBudgetItem() {
+    this.budgetItemService.save(this.budgetItem).subscribe(() =>
+      this.router.navigateByUrl('budget-item-list')
     );
   }
 
-  getBudgetItem(){
+  getBudgetItem() {
      this.budgetItemService.findById(this.id).subscribe(data => this.budgetItem = data);
   }
 }

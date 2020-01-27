@@ -6,5 +6,5 @@ export class Item {
     dateDue: Date;
     item: string;
     amount: number;
-    reviewed: boolean;    
+    reviewed: boolean;
 }
