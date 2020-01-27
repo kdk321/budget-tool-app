@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item.model';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class BudgetItemService {
   private readonly budgetItemsUrl: string;
 
   constructor(private http: HttpClient) {
-    this.budgetItemsUrl = 'http://localhost:8080/budget-items';
+    this.budgetItemsUrl = environment.budgetItemsUrl;
    }
 
    public findAll(): Observable<Item[]> {
